@@ -1,0 +1,110 @@
+
+<div class="row-">
+  <div class="col-xs-12">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <div class="row">
+        <div class="col-sm-5 form-group" >
+          <label for="name">Name</label>
+          <input
+          [disabled]="isEditMode"
+            type="text"
+            id="name"
+            class="form-control"
+            name="name"
+
+            [ngModel]="profile.name"
+            required
+            >
+        </div>
+            <div class="col-sm-5 form-group">
+              <label for="phone">Phone</label>
+              <input
+                type="text"
+                id="phone"
+                class="form-control"
+                name="phone"
+
+                [ngModel]="profile.phone"
+                [required]="!isEditMode"
+                >
+        </div>
+        <div class="col-sm-5 form-group">
+          <label for="id">ID</label>
+          <input
+          [disabled]="isEditMode"
+            type="number"
+            id="id"
+            class="form-control"
+            name="id"
+            [ngModel]="profile.id"
+            required
+
+            >
+        </div>
+
+        <div class="col-sm-5 form-group">
+          <label for="residence">Residence</label>
+          <input
+            type="text"
+            id="residence"
+            class="form-control"
+            name="residence"
+
+            [ngModel]="profile.residence"
+            [required]="!isEditMode"
+            >
+        </div>
+        <div class="col-sm-5 form-group" *ngIf="isChangePassword">
+            <label for="password">Old password</label>
+            <input
+              type="password"
+              id="oldPassword"
+              class="form-control"
+              name="oldPassword"
+             ngModel
+              [required]="isChangePassword"
+              >
+      </div>
+
+        <div class="col-sm-5 form-group" *ngIf="isChangePassword || !isEditMode">
+            <label for="password">{{isEditMode?'new password' :'password'}}</label>
+            <input
+              type="password"
+              id="password"
+              class="form-control"
+              name="password"
+             [(ngModel)]="newPassword"
+              [required]="!isEditMode || isChangePassword"
+              pattern="(.{2,8})"
+              >
+      </div>
+      <div class="col-sm-5 form-group" *ngIf="isChangePassword || !isEditMode">
+          <label  for="conformPassword" [ngStyle]="{'color':isPasswordConform() ? 'black' : 'red' }">conform password</label>
+          <input
+            type="password"
+            id="conformPassword"
+            class="form-control"
+            name="conformPassword"
+            [(ngModel)]="comformPassword"
+
+            >
+    </div>
+
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <button class="btn btn-success" type="submit" [disabled]="!f.valid || !isPasswordConform()">Submit</button>
+          <button *ngIf="!isEditMode" class="btn btn-danger" type="button" >Delete</button>
+          <button class="btn btn-primary" type="button" (click)="onClear()" >Clear</button>
+          <button *ngIf="isEditMode" (click)="onChangePassword()" [ngClass]="{ 'btn btn-danger':!isChangePassword}" type="button" >{{isChangePassword?'Unc':'C'}}hange password</button>
+
+        </div>
+      </div>
+      <div class="row">
+      <div class="col-xs-12">
+      <div   *ngIf="errorMessage" class="alert alert-danger" role="alert">{{errorMessage}}</div>
+      </div>
+      </div>
+    </form>
+  </div>
+</div>

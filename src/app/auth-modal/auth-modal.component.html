@@ -1,0 +1,53 @@
+
+<!-- <ng-template #auth> -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="exampleModalLongTitle">Please authenticate</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #f="ngForm" (ngSubmit)="onCheckAuth()" >
+              <div class="col-sm-12 form-group">
+                  <label for="id">ID</label>
+                  <input
+                    type="number"
+                    id="id"
+                    class="form-control"
+                    name="id"
+                    ngModel
+                    pattern="[0-9]{1,8}"
+                    required
+
+                    >
+                </div>
+                <div class="col-sm-12 form-group">
+                  <label for="password">password</label>
+                  <input
+                    type="password"
+                    id="password" c
+                    class="form-control"
+                    name="password"
+                    pattern="(.{2,8})"
+                    ngModel
+                    required
+                    >
+                  </div>
+                    <div class="modal-footer">
+                        <button  [disabled]="!f.valid"  class="btn btn-primary" >Login</button>
+                        <button #close type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      </div>
+                      <div *ngIf="errorMessage" class="alert alert-danger" role="alert">{{errorMessage}}</div>
+
+
+          </form>
+
+
+      </div>
+    </div>
+  </div>
+<!-- </ng-template> -->
+

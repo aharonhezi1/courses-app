@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-xs-6 col-md-4">
+      <div class="thumbnail">
+        <img src="../../../assets/profile-pic.jpg" alt="...">
+        <div class="caption">
+          <h3>{{profile.name }} </h3>
+
+          <h4>Password: {{profile.password.slice(0, 7)}}***</h4>
+
+          <p><a (click)="onEdit()" class="btn btn-primary" role="button">edit</a> </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-xl-4">
+      <app-edit-admin *ngIf="isEditMode" [isEditMode]="true" [profile]="profile"></app-edit-admin>
+      </div>
+  </div>

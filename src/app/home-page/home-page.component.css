@@ -1,0 +1,20 @@
+
+body, html {
+  height: 100% !important;
+}
+.bg {
+  /* The image used */
+  background-image: url("../../assets/high-images/99_z_4044_Cottey_am_4.12.18_-99.jpg");
+
+  /* Half height */
+  height: 100vh !important;
+
+  /* Center and scale the image nicely */
+  background-position:cover  !important;
+
+  background-repeat: no-repeat;
+  background-size: 100%;
+
+  opacity: 0.7 !important;
+
+}

@@ -1,0 +1,36 @@
+<table>
+  <tr>
+    <th *ngFor="let col of columnsName, let i of index">
+      {{col}}
+    </th>
+    <th>add student to course</th>
+  </tr>
+  <tr *ngFor="let char of characters ">
+    <td *ngFor="let col of columns">
+      {{char[col]}}
+    </td>
+    <td><button (click)="onAddStudentToCourse(char.id)" class="btn btn-default">add to course</button></td>
+  </tr>
+</table>
+<hr>
+<div class="row">
+  <button (click)="onAddStudent()">add student</button>
+</div>
+<div class="col-md-6 col-xl-4">
+  <app-add-or-edit-student *ngIf="isAddStudent" [isEditMode]="false" ></app-add-or-edit-student>
+  </div>
+  <div class="row">
+    <div class="col-xs-6">
+  <form #f="ngForm" (ngSubmit)="onSubmitStudentToCourse()" *ngIf="isAddStudentToCourse">
+      <input
+      type="text"
+      id="courseId"
+      name="courseId"
+       ngModel
+       required
+        class="form-control">
+<button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+    </div>
+</div>
+

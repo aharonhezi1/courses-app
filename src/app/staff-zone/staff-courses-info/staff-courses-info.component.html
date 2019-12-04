@@ -1,0 +1,59 @@
+<table>
+  <tr>
+    <th *ngFor="let col of columnsName, let i of index">
+      {{col}}
+    </th>
+    <th>Students</th>
+  </tr>
+  <tr *ngFor="let char of characters ">
+    <td *ngFor="let col of columns">
+      {{char[col]}}
+    </td>
+    <td><button (click)="onWatchStudents(char)"  class="btn btn-default">watch</button></td>
+  </tr>
+</table>
+<hr>
+<div class="row">
+  <button (click)="onAddCourse()" >Add Course</button>
+  <div  *ngIf="isAddCourse" class="row">
+    <div class="col-xs-6">
+        <app-add-course></app-add-course>
+    </div>
+
+  </div>
+
+</div>
+<table *ngIf="isStudentShown">
+  <tr *ngIf="isStudentShown">
+    <th *ngFor="let col of studentsColumnsName, let i of index">
+      {{col}}
+    </th>
+    <th>Attendance</th>
+  </tr>
+  <tr *ngFor="let char of studetsInCourse ">
+    <td *ngFor="let col of studentsColumns">
+      {{char[col]}}
+    </td>
+    <td><button (click)="onclickAttendance(char.id)"  class="btn btn-default">watch</button></td>
+  </tr>
+</table>
+<hr>
+<div class="row" *ngIf="isAttndanceShown">
+  <div class="col-xs-12">
+<table>
+  <tr>
+      <th *ngFor="let col of attendanceColumnsName">
+        {{col}}
+      </th>
+      <th>Edit comment</th>
+
+    </tr>
+    <tr *ngFor="let value of attndanceValues ">
+      <td *ngFor="let col of attendanceColumnsName" >
+        {{value[col]}}
+      </td>
+      <td><button [disabled]="!value.comment" class="btn btn-default">edit</button></td>
+    </tr>
+  </table>
+  </div>
+  </div>

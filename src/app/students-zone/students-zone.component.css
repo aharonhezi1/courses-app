@@ -1,0 +1,19 @@
+
+body, html {
+  height: 100% !important;
+}
+.bg2NOT {
+/* The image used */
+background-image: url("../../assets/high-images/4044_Cottey_pm_4.12.18_-169.jpg");
+
+/* Half height */
+height: 100vh !important;
+
+/* Center and scale the image nicely */
+background-position:cover  !important;
+
+background-repeat: no-repeat;
+background-size: 100%;
+
+opacity: 0.7 !important;
+}

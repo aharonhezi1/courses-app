@@ -1,0 +1,51 @@
+<nav class="navbar navbar-default " id="nav">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Hezi College</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li ><a >He<span class="sr-only">(current)</span></a></li>
+        <li><a  *ngIf="!isAuth" (click)="onClickStudentsInfo()"  data-toggle="modal" data-target="#exampleModalCenter">STUDENTS INFORMATION</a></li>
+        <li><a  *ngIf="isAuth" [ngClass]="{ 'disabledAtag':isStaffLogingIn}" [routerLink]="['/students/my-profile']" >STUDENTS INFORMATION</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+            aria-expanded="false">FACULTY & STAFF <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a >Academic staff</a></li>
+            <li><a>Administrative staff</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a >Collge faculties</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a *ngIf="!isStaffLogingIn"  style="color: red;" data-toggle="modal" (click)="onClickStaffInfo()" data-target="#exampleModalCenter">Staff Only</a></li>
+            <li><a *ngIf="isStaffLogingIn"  [routerLink]="['/staff/students']" >Staff Only</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-primary">SEARCH</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a *ngIf="isAuth" style="cursor: default; color: #000;"  >Hello {{name}}!</a></li>
+        <li><a *ngIf="!isAuth" data-toggle="modal" data-target="#exampleModalCenter" href="#">login</a></li>
+        <li><a *ngIf="isAuth" (click)="onLogout()"  >logOut</a></li>
+
+
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<app-auth-modal></app-auth-modal>

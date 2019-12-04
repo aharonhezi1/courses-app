@@ -1,0 +1,51 @@
+<table>
+  <tr>
+    <th *ngFor="let col of columnsName, let i of index">
+      {{col}}
+    </th>
+    <th>Attendnce</th>
+  </tr>
+  <tr *ngFor="let char of characters ">
+    <td *ngFor="let col of columns">
+      {{char[col]}}
+    </td>
+    <td><button (click)="onclickAttendance(char.courseId,char.course_name)" class="btn btn-default">watch</button></td>
+  </tr>
+</table>
+<hr>
+<div class="row" *ngIf="isAttndanceShown">
+<div class="col-xs-12">
+    <h3>Your attendaces at {{courseName}} course</h3>
+  <table>
+    <tr>
+        <th *ngFor="let col of attendanceColumnsName">
+          {{col}}
+        </th>
+        <th>Edit comment</th>
+
+      </tr>
+      <tr *ngFor="let value of attndanceValues ">
+        <td *ngFor="let col of attendanceColumnsName" >
+          {{value[col]}}
+        </td>
+        <td><button [disabled]="!value.comment" (click)="onEditAttendance(value)" class="btn btn-default">edit</button></td>
+      </tr>
+    </table>
+    <hr>
+    <div class="row">
+        <div class="col-xs-6">
+      <form #f (ngSubmit)="onSubmitComment(f)" *ngIf="isEditAttendace">
+          <input
+          type="text"
+          id="newComment"
+          name="newComment"
+           [(ngModel)]="newComment"
+            class="form-control">
+<button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+        </div>
+    </div>
+</div>
+
+
+</div>
