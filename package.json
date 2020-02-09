@@ -23,7 +23,7 @@
     "@angular/router": "~8.2.4",
     "ag-grid-angular": "^22.0.0",
     "ag-grid-community": "^22.0.0",
-    "bootstrap": "^3.3.7",
+    "bootstrap": "^3.4.1",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.0",
     "rxjs": "~6.4.0",
