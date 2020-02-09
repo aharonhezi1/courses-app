@@ -79,13 +79,13 @@
               >
       </div>
       <div class="col-sm-5 form-group" *ngIf="isChangePassword || !isEditMode">
-          <label  for="conformPassword" [ngStyle]="{'color':isPasswordConform() ? 'black' : 'red' }">conform password</label>
+          <label  for="confirmPassword" [ngStyle]="{'color':isPasswordconfirm() ? 'black' : 'red' }">confirm password</label>
           <input
             type="password"
-            id="conformPassword"
+            id="confirmPassword"
             class="form-control"
-            name="conformPassword"
-            [(ngModel)]="comformPassword"
+            name="confirmPassword"
+            [(ngModel)]="confirmPassword"
 
             >
     </div>
@@ -93,7 +93,7 @@
       </div>
       <div class="row">
         <div class="col-xs-12">
-          <button class="btn btn-success" type="submit" [disabled]="!f.valid || !isPasswordConform()">Submit</button>
+          <button class="btn btn-success" type="submit" [disabled]="!f.valid || !isPasswordconfirm()">Submit</button>
           <button *ngIf="!isEditMode" class="btn btn-danger" type="button" >Delete</button>
           <button class="btn btn-primary" type="button" (click)="onClear()" >Clear</button>
           <button *ngIf="isEditMode" (click)="onChangePassword()" [ngClass]="{ 'btn btn-danger':!isChangePassword}" type="button" >{{isChangePassword?'Unc':'C'}}hange password</button>

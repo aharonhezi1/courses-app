@@ -21,14 +21,14 @@ export class EditAdminComponent implements OnInit {
     phone: null
   };
   newPassword = '';
-  comformPassword = '';
+  confirmPassword = '';
   @Input() isChangePassword: boolean;
   errorMessage;
 
   constructor(private studentsApiService: StudentsApiService, private staffApiService: StaffApiService) { }
 
-  isPasswordConform() {
-    return this.newPassword === this.comformPassword;
+  isPasswordconfirm() {
+    return this.newPassword === this.confirmPassword;
   }
   onClear() {
     this.f.reset({
@@ -40,7 +40,7 @@ export class EditAdminComponent implements OnInit {
   onChangePassword() {
     this.isChangePassword = !this.isChangePassword;
     this.newPassword = '';
-    this.comformPassword = '';
+    this.confirmPassword = '';
     this.errorMessage = '';
   }
 

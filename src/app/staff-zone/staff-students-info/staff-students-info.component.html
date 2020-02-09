@@ -20,7 +20,7 @@
   <app-add-or-edit-student *ngIf="isAddStudent" [isEditMode]="false" ></app-add-or-edit-student>
   </div>
   <div class="row">
-    <div class="col-xs-6">
+    <div class="col">
   <form #f="ngForm" (ngSubmit)="onSubmitStudentToCourse()" *ngIf="isAddStudentToCourse">
       <input
       type="text"
