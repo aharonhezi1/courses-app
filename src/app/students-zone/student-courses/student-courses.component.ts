@@ -30,6 +30,7 @@ export class StudentCoursesComponent implements OnInit, OnDestroy {
   newComment = 'Please enter your comment...';
   newCommentSession;
   onclickAttendance(courseId: string, courseName) {
+    this.isAttndanceShown = false;
     this.courseName = courseName;
     this.courseId = courseId;
     this.coursesApiService.showAttendance(courseId,null).subscribe((res: any) => {
